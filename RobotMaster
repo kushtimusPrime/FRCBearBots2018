@@ -18,31 +18,43 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  * it contains the code necessary to operate a robot with tank drive.
  */
 public class Robot extends IterativeRobot {
+	//m_myRobot is the robot's teleop driving system
 	private DifferentialDrive m_myRobot;
-//	private Joystick m_leftStick; //What left stick?
-	private Joystick m_rightStick;
+	
+	//m_Stick is the joystick
+	private Joystick m_Stick;
 
 	@Override
 	public void robotInit() {
 		//WARNING! THIS IS DIFFERENT FROM THE TEMPLATE!
+		//m_frontLeft is the front left motor (don't worry about instantiations, they work so whatever)
 		Spark m_frontLeft = new Spark(0);
+		
+		//m_rearLeft is the rear left motor
 		Spark m_rearLeft = new Spark (1);
+		
+		//m_left groups the two left sparks as a single operational unit
 		SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
 		
+		//m_frontRight is the front right motor
 		Spark m_frontRight = new Spark(2);
+		
+		//m_rearRight is the rear right motor
 		Spark m_rearRight = new Spark(3);
+		
+		//m_right groups the two right sparks as a single operational unit
 		SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
 		
+		//Driving object
 		m_myRobot = new DifferentialDrive(m_left, m_right);
 
-		
-//		m_leftStick = new Joystick(0); //What left stick?
-		m_rightStick = new Joystick(0);
-		System.out.println("heay it worked!");
+		//Joystick instantiation
+		m_Stick = new Joystick(0);
 	}
 
 	@Override
 	public void teleopPeriodic() {
-		m_myRobot.arcadeDrive(m_rightStick.getY(), m_rightStick.getX());
+		//Allows the robot to drive
+		m_myRobot.arcadeDrive(m_Stick.getY(), m_Stick.getX());
 	}
 }
