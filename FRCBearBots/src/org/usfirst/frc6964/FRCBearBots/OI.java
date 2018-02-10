@@ -14,6 +14,7 @@ package org.usfirst.frc6964.FRCBearBots;
 import org.usfirst.frc6964.FRCBearBots.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
