@@ -69,9 +69,8 @@ public class DriveSystem extends Subsystem {
     }
     
     public void takeXJoystickAxisOnly(Joystick joystick) {
-    	robotDrive.arcadeDrive(0, joystick.getX());// This might freak out. TODO: Test.
+    	robotDrive.arcadeDrive(0, joystick.getX());
     }
-    
     
 //    public void  stop() {/ M9 i've not a clue
 //    	robotDrive.drive(0, 0);
